@@ -297,10 +297,42 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534529229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 771103555}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &771103554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 771103555}
+  m_Layer: 0
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &771103555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771103554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 534529232}
   m_Father: {fileID: 2019703678}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,8 +348,9 @@ GameObject:
   - component: {fileID: 2019703677}
   - component: {fileID: 2019703676}
   - component: {fileID: 2019703675}
-  - component: {fileID: 2019703679}
   - component: {fileID: 2019703680}
+  - component: {fileID: 2019703681}
+  - component: {fileID: 2019703679}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -401,7 +434,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 534529232}
+  - {fileID: 771103555}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -417,7 +450,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6257ee2ad4e3e3b8e853ffbaecc7c21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  input_Movement: {x: 0, y: 0}
+  input_View: {x: 0, y: 0}
+  cameraHolder: {fileID: 771103555}
+  playerSettings:
+    ViewXSensitivity: 10
+    ViewYSensitivity: 10
+    ViewXInverted: 0
+    ViewYInverted: 0
+  viewClampYMin: -70
+  viewClampYMax: 80
 --- !u!54 &2019703680
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -434,6 +476,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
+--- !u!143 &2019703681
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019703674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2113496355
 GameObject:
   m_ObjectHideFlags: 0
