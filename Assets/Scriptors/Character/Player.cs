@@ -34,6 +34,10 @@ public class Player : MonoBehaviour
         newCameraRotation = cameraHolder.localRotation.eulerAngles;
         newPlayerRotation = transform.localRotation.eulerAngles;
         characterController = GetComponent<CharacterController>();
+        // Hides Cursor
+        Cursor.visible = false;
+        // Locks cursor to center of screen
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
@@ -66,4 +70,5 @@ public class Player : MonoBehaviour
 
         cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
     }
+
 }
