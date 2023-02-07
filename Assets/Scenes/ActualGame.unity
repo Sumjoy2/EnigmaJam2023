@@ -271,7 +271,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 105
+  field of view: 26.991467
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -348,7 +348,6 @@ GameObject:
   - component: {fileID: 2019703677}
   - component: {fileID: 2019703676}
   - component: {fileID: 2019703675}
-  - component: {fileID: 2019703680}
   - component: {fileID: 2019703681}
   - component: {fileID: 2019703679}
   m_Layer: 0
@@ -460,22 +459,6 @@ MonoBehaviour:
     ViewYInverted: 0
   viewClampYMin: -70
   viewClampYMax: 80
---- !u!54 &2019703680
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019703674}
-  serializedVersion: 2
-  m_Mass: 188
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 64
-  m_CollisionDetection: 0
 --- !u!143 &2019703681
 CharacterController:
   m_ObjectHideFlags: 0

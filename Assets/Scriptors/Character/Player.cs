@@ -48,10 +48,10 @@ public class Player : MonoBehaviour
 
     private void CalculateView()
     {
-        newPlayerRotation.y += playerSettings.ViewXSensitivity *input_View.x * Time.deltaTime;
+        newPlayerRotation.y += playerSettings.ViewXSensitivity *(playerSettings.ViewXInverted ? -input_View.x : input_View.x) * Time.deltaTime;
         transform.localRotation = Quaternion.Euler(newPlayerRotation);
 
-        newCameraRotation.x += playerSettings.ViewYSensitivity * -input_View.y * Time.deltaTime;
+        newCameraRotation.x += playerSettings.ViewYSensitivity * (playerSettings.ViewYInverted ? input_View.y : -input_View.y) * Time.deltaTime;
         newCameraRotation.x = Mathf.Clamp(newCameraRotation.x, viewClampYMin, viewClampYMax);
 
         cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
