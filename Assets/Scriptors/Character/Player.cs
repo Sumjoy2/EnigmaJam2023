@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     {
         CalculateMovement();
         CalculateView();
+
     }
 
     private void CalculateMovement()
