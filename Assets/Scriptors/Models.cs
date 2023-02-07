@@ -16,6 +16,11 @@ public static class Models
 
         public bool ViewXInverted;
         public bool ViewYInverted;
+
+        [Header("Movement")]
+        public float ForwardSpeed;
+        public float StrafeSpeed;
+        public float BackwardsSpeed;
     }
 
     #endregion

@@ -5,6 +5,7 @@ using static Models;
 
 public class Player : MonoBehaviour
 {
+    private CharacterController characterController;
     private DefaultInput defaultInput;
     public Vector2 input_Movement;
     public Vector2 input_View;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
 
         newCameraRotation = cameraHolder.localRotation.eulerAngles;
         newPlayerRotation = transform.localRotation.eulerAngles;
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -43,7 +45,14 @@ public class Player : MonoBehaviour
 
     private void CalculateMovement()
     {
-        
+        var verticalSpeed = playerSettings.ForwardSpeed *input_Movement.y * Time.deltaTime;
+        var horizontalSpeed = playerSettings.StrafeSpeed *input_Movement.x * Time.deltaTime;
+
+
+        var newMovementSpeed = new Vector3(horizontalSpeed, 0, verticalSpeed);
+        newMovementSpeed = transform.TransformDirection(newMovementSpeed);
+
+        characterController.Move(newMovementSpeed);
     }
 
     private void CalculateView()
