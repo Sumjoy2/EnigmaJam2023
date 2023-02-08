@@ -46,7 +46,7 @@ public class GunGun : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
-
+        Debug.Log("Bullet Shot");
         //Spread
         float x = Random.Range(-spread, spread);
         float y = Random.Range(-spread, spread);
@@ -58,6 +58,7 @@ public class GunGun : MonoBehaviour
          if (Physics.Raycast(MainCamera.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
             Debug.Log(rayHit.collider.name);
+            Debug.Log("Hit");
         }
 
         bulletsLeft--;
@@ -67,6 +68,7 @@ public class GunGun : MonoBehaviour
 
         if(bulletsShot > 0 && bulletsLeft > 0)
         Invoke("Shoot", timeBetweenShots);
+        Debug.Log(bulletsLeft);
     }
 
     private void ResetShot()
