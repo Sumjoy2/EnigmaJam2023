@@ -58,7 +58,6 @@ public class GunGun : MonoBehaviour
          if (Physics.Raycast(MainCamera.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
             Debug.Log(rayHit.collider.name);
-            Debug.Log("Hit");
         }
 
         bulletsLeft--;

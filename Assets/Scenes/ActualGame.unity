@@ -5140,7 +5140,6 @@ GameObject:
   - component: {fileID: 534529232}
   - component: {fileID: 534529231}
   - component: {fileID: 534529230}
-  - component: {fileID: 534529233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5207,39 +5206,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534529229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.05, z: 0.622}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 771103555}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &534529233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534529229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 525abd7769914c46aabc3a25ac1888d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  timeBetweenShooting: 0
-  spread: 0
-  range: 0
-  reloadTime: 0
-  timeBetweenShots: 1
-  magSize: 30
-  bulletsPerTap: 1
-  allowButtonHold: 1
-  MainCamera: {fileID: 534529231}
-  attackPoint: {fileID: 0}
-  whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &771103554
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,6 +5258,7 @@ GameObject:
   - component: {fileID: 1714445235}
   - component: {fileID: 1714445234}
   - component: {fileID: 1714445233}
+  - component: {fileID: 1714445236}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -5300,7 +5274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714445231}
   m_LocalRotation: {x: 0.04358887, y: -0.037373163, z: -0.001631748, w: 0.9983489}
-  m_LocalPosition: {x: 0.39, y: -0.22786942, z: 0.8835018}
+  m_LocalPosition: {x: 0.35, y: -0.19, z: 0.89}
   m_LocalScale: {x: 0.23000002, y: 0.18, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5370,6 +5344,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714445231}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1714445236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714445231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525abd7769914c46aabc3a25ac1888d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  timeBetweenShooting: 1
+  spread: 0
+  range: 100
+  reloadTime: 0
+  timeBetweenShots: 0.5
+  magSize: 30
+  bulletsPerTap: 1
+  allowButtonHold: 0
+  MainCamera: {fileID: 534529231}
+  attackPoint: {fileID: 1714445232}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 2147483647
 --- !u!1 &2019703674
 GameObject:
   m_ObjectHideFlags: 0
