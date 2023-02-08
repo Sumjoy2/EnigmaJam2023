@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //needed to load menu
 using static Models;
 
 public class Player : MonoBehaviour
@@ -9,12 +10,14 @@ public class Player : MonoBehaviour
     private DefaultInput defaultInput;
     public Vector2 input_Movement;
     public Vector2 input_View;
+    private bool flashlightActive = false; //Is flashlight active or not
 
     private Vector3 newCameraRotation;
     private Vector3 newPlayerRotation;
 
     [Header("References")]
     public Transform cameraHolder;
+    public GameObject flashlight;
 
     [Header("Settings")]
     public PlayerSettingsModel playerSettings;
@@ -29,15 +32,20 @@ public class Player : MonoBehaviour
         defaultInput.Player.Movement.performed += e => input_Movement = e.ReadValue<Vector2>();
         defaultInput.Player.View.performed += e => input_View = e.ReadValue<Vector2>();
 
+        defaultInput.Player.Flashlight.performed += x => Flashlight(); //For Toggling flashlight after hitting F key
+        defaultInput.Player.Menu.performed += x => LoadScene("Menu"); //Loads menu after hitting the esc key
+
         defaultInput.Enable();
 
         newCameraRotation = cameraHolder.localRotation.eulerAngles;
         newPlayerRotation = transform.localRotation.eulerAngles;
         characterController = GetComponent<CharacterController>();
+
         // Hides Cursor
         Cursor.visible = false;
         // Locks cursor to center of screen
         Cursor.lockState = CursorLockMode.Confined;
+
     }
 
     // Update is called once per frame
@@ -45,7 +53,6 @@ public class Player : MonoBehaviour
     {
         CalculateMovement();
         CalculateView();
-
     }
 
     private void CalculateMovement()
@@ -71,4 +78,14 @@ public class Player : MonoBehaviour
         cameraHolder.localRotation = Quaternion.Euler(newCameraRotation);
     }
 
+    private void Flashlight() //Toggles flashlight states
+    {
+        flashlightActive = !flashlightActive; 
+        flashlight.SetActive(flashlightActive);
+    }
+
+    public void LoadScene(string sceneName) //For loading menu to work
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }
