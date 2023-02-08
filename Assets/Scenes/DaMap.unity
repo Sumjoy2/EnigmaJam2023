@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &23477536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 23477536, guid: 00387fc4e25d116588b5d7c750164cb5, type: 3}
-  m_PrefabInstance: {fileID: 1228433646}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &124101475
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,10 +228,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23477536, guid: 00387fc4e25d116588b5d7c750164cb5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3766667488504711832, guid: 00387fc4e25d116588b5d7c750164cb5, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -281,10 +272,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3766667488504711833, guid: 00387fc4e25d116588b5d7c750164cb5, type: 3}
-      propertyPath: flashlight
-      value: 
-      objectReference: {fileID: 23477536}
     - target: {fileID: 3766667488504711836, guid: 00387fc4e25d116588b5d7c750164cb5, type: 3}
       propertyPath: m_Name
       value: Player
