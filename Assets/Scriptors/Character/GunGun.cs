@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class GunGun : MonoBehaviour
 {
-    //GunStat
+    //Gun stats
     public int damage;
-    public float fireRate, range, reloadTime, timeBetweenShots;
-    public int magSize, bulletsPertap;
+    public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
+    public int magSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
 
-    //bools
-    bool shotting, readyToShoot, Reloading;
+    //bools 
+    bool shooting, readyToShoot, reloading;
 
-    //reference
+    //Reference
     public Camera MainCamera;
     public Transform attackPoint;
     public RaycastHit rayHit;
@@ -31,14 +31,14 @@ public class GunGun : MonoBehaviour
 
     private void MyInput()
     {
-        if (allowButtonHold) shooting = input.GetKey(KeyCode.Mouse0);
-        else shooting = input.GetKeyDown(KeyCode.Mouse0);
+        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
+        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magSize && !reloading) Reload();
         //Shoot
 
         if(readyToShoot && shooting && !reloading && bulletsLeft > 0){
-            bulletsShot = bulletsPertap;
+            bulletsShot = bulletsPerTap;
             Shoot();
         }
     }
@@ -55,13 +55,11 @@ public class GunGun : MonoBehaviour
         Vector3 direction = MainCamera.transform.forward + new Vector3(x, y, 0);
 
         //RayCast
-        if (Physics.Raycast(MainCamera.transform.position, MainCamera.transform.forward, direction, out rayHit, range, whatIsEnemy))
+         if (Physics.Raycast(MainCamera.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
             Debug.Log(rayHit.collider.name);
-
-            if(rayHit.collider.CompareTag("Enemy"))
-                rayHit.collider.getComponent<ShootingAi>().TakeDamage(damage);
         }
+
         bulletsLeft--;
         bulletsShot--;
 
@@ -82,10 +80,10 @@ public class GunGun : MonoBehaviour
         Invoke("ReloadFinished", reloadTime);
     }
 
+
    private void ReloadFinished()
    {
-   bulletsLeft = magSize;
-   reloading = false;
-
+        bulletsLeft = magSize;
+        reloading = false;
    }
 }
