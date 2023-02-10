@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 947
-  materialHash: 617b14797782e351d57e6193de8809ea255852544
+  materialHash: dd4dd5303014e5cfb72bc49a7dcbebbc255852544
   root:
     _uniqueID: 1
     seed: 1234
@@ -367,7 +367,7 @@ MonoBehaviour:
     childGroupIDs: 07000000
     lodQualityMultiplier: 1
     geometryMode: 0
-    materialBranch: {fileID: 0}
+    materialBranch: {fileID: 2100000, guid: 6a14d4f739ab710b99b2eb90279432e0, type: 2}
     materialBreak: {fileID: 0}
     materialFrond: {fileID: 0}
     height: {x: 10, y: 15}
@@ -605,7 +605,7 @@ MonoBehaviour:
     childGroupIDs: 18000000
     lodQualityMultiplier: 2
     geometryMode: 0
-    materialBranch: {fileID: 0}
+    materialBranch: {fileID: 2100000, guid: 6a14d4f739ab710b99b2eb90279432e0, type: 2}
     materialBreak: {fileID: 0}
     materialFrond: {fileID: 0}
     height: {x: 10, y: 15}
